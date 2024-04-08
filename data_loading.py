@@ -108,3 +108,6 @@ if __name__ == "__main__":
     recordings, labels = loadData(F"{GRUNY_DATA_LOCATION}data", F"{GRUNY_DATA_LOCATION}yaml_extraction_files", [1, 2])
     print(len(recordings)) #50
     print(len(labels)) #50
+
+
+print("Hello")
