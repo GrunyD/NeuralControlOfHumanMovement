@@ -1,0 +1,56 @@
+#MVC
+
+KneeExt_T1: 75;  #start knee extension
+KneeExt_T2: 446; #end knee extension
+
+KneeFlex_T1: 791; #start knee flexion
+KneeFlex_T2: 1177 #end knee flexion
+
+DorsiFlex_T1: 3044 #start dorsiflexion
+DorsiFlex_T2: 3349 #end dorsiflexion
+
+PlantarFlex_T1: 2592 #start plantarflexion
+PlantarFlex_T2: 2955 #end plantarflexion
+
+# Rest
+
+Rest_lying_T1: 6395 #start lying down
+Rest_lying_T2: 6515 # end lying down
+
+Rest_sitting_T1: 585 #start sitting70
+Rest_sitting_T2: 705 # end sitting
+
+Standing_T1: 5145 #start sitting
+Standing_T2: 5265 # end sitting
+
+Cartoon_T1: 7750 #start cartoon
+Cartoon_T2: 9550 # end cartoon
+
+# Gait
+Treadmill_self_T1: 5614 #start self chosen treadmill walk
+Treadmill_self_T2: 5734 #end self chosen treadmill walk
+
+Treadmill_fast_T1: 5791 #start fast treadmill walk
+Treadmill_fast_T2: 5911 #end fast treadmill walk
+
+Treadmill_run_T1: 6270 #start treadmill run
+Treadmill_run_T2: 6330 #end treadmill run
+
+Floor_self_T1: 4836 #start floor walk
+Floor_self_T2: 4947 #end floor walk
+
+Floor_fast_T1: 4972 #start floor walk fast
+Floor_fast_T2: 5092 #end floor walk fast
+
+Floor_run_T1: 5360 #start floor run
+Floor_run_T2: 5420 #end floor run
+
+Stair_T1: 7172 #start stair walk
+Stair_T2: 7286 #end stair walk
+
+# Daily activities - play
+Jump_T1: 6700 #start jump
+Jump_T2: 6756 #end jump
+
+Football_T1: 6833 #start football
+Football_T2: 6898 #end football

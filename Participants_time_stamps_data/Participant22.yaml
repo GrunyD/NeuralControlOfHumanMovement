@@ -1,0 +1,82 @@
+
+#MVC
+
+
+KneeExt_T1: 129 #start knee extension
+KneeExt_T2: 568 #End knee extension
+
+KneeFlex_T1: 915 #start knee flexion
+KneeFlex_T2: 1257 #end knee flexion
+
+DorsiFlex_T1: 1687 #start dorsiflexion
+DorsiFlex_T2: 2190 #end dorsiflexion
+
+PlantarFlex_T1: 2208 #start plantarflexion
+PlantarFlex_T2: 2330 #end plantar
+
+#Rest
+Rest_lying_T1: 5220 #start lying down
+Rest_lying_T2: 5340 # end lying down
+
+Rest_sitting_T1: 673 #start sitting
+Rest_sitting_T2: 793 # end sitting
+
+Standing_T1: 5468 #start sitting
+Standing_T2: 5580 # end sitting
+
+Standing_Support_T1: 3364 #start standing
+Standing_Support_T2: 3484 # end standing
+
+Cartoon_T1: 7189 #start cartoon
+Cartoon_T2: 8989 # end cartoon
+
+# Gait
+Treadmill_self_T1: 4382 #start self chosen treadmill walk
+Treadmill_self_T2: 4502 #end self chosen treadmill walk
+
+Treadmill_fast_T1: 4675 #start fast treadmill walk
+Treadmill_fast_T2: 4795 #end fast treadmill walk
+
+Treadmill_fixed_T1: 4520 #start fixed treadmill walk
+Treadmill_fixed_T2: 4640 #end fixed treadmill walk
+
+Treadmill_run_T1: 4835 #start treadmill run
+Treadmill_run_T2: 4895 #end treadmill run
+
+Floor_self_T1: 2680 #start floor walk
+Floor_self_T2: 2800 #end floor walk
+
+Floor_fast_T1: 2995 #start floor walk fast
+Floor_fast_T2: 3115 #end floor walk fast
+
+Floor_run_T1: 3250 #start floor run0
+Floor_run_T2: 3310 #end floor run
+
+Stair_up1_T1: 6298 #start stair walk
+Stair_up1_T2: 6316 #end stair walk
+
+Stair_down1_T1: 6343 #start stair walk
+Stair_down1_T2: 6360 #end stair walk
+
+Stair_up2_T1: 6372 #start stair walk
+Stair_up2_T2: 6390 #end stair walk
+
+Stair_down2_T1: 6418 #start stair walk
+Stair_down2_T2: 6434 #end stair walk
+
+# Daily activities - play
+
+Jump1_T1: 5786 #start jump
+Jump1_T2: 5789 #end jump
+
+Jump2_T1: 5814 #start jump
+Jump2_T2: 5816 #end jump
+
+Jump3_T1: 5834 #start jump
+Jump3_T2: 5837 #end jump
+
+Football2_T1: 6171 #start football
+Football2_T2: 6174 #end football
+
+Football3_T1: 6187 #start football
+Football3_T2: 6190 #end football
