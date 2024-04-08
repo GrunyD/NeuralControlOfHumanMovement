@@ -1,0 +1,83 @@
+Samp_rate: 25
+KneeExt_T1: 551 #tart knee extension
+KneeExt_T2: 830 #nd knee extension
+
+KneeFlex_T1: 230 #tart knee flexion
+KneeFlex_T2: 349 #nd knee flexion
+
+DorsiFlex_T1: 1082 #start dorsiflexion
+DorsiFlex_T2: 1217 #end dorsiflexion
+
+PlantarFlex_T1: 1554 #start plantarflexion
+PlantarFlex_T2: 1662 #end plantarflexion
+
+# Rest
+
+Rest_lying_T1: 4860 #start lying down 
+Rest_lying_T2: 4980 # end lying down
+
+Rest_sitting_T1: 385 #tart sitting
+Rest_sitting_T2: 505 #end sitting
+
+Standing_T1: 1759 #start sitting
+Standing_T2: 1879 # end sitting
+
+Standing_Support_T1: 2455 #start standing
+Standing_Support_T2: 2575 # end standing
+
+Cartoon_T1: 5340 #start cartoon
+Cartoon_T2: 6540 # end cartoon
+
+# Gait
+Treadmill_self_T1: 2940 #start self chosen treadmill walk
+Treadmill_self_T2: 3060 #end self chosen treadmill walk
+
+Treadmill_fast_T1: 3283 #start fast treadmill walk
+Treadmill_fast_T2: 3403 #end fast treadmill walk
+
+Treadmill_fixed_T1: 3108 #start fixed treadmill walk
+Treadmill_fixed_T2: 3228 #end fixed treadmill walk
+
+Treadmill_run_T1: 3553 #start treadmill run
+Treadmill_run_T2: 3613 #end treadmill run
+
+Floor_self_T1: 1946 #start floor walk
+Floor_self_T2: 2066 #end floor walk
+
+Floor_fast_T1: 2226 #start floor walk fast
+Floor_fast_T2: 2346 #end floor walk fast
+
+Floor_run_T1: 2622 #start floor run
+Floor_run_T2: 2682 #end floor run
+
+Stair_up1_T1: 4284 #start stair walk
+Stair_up1_T2: 4320 #end stair walk
+
+Stair_down1_T1: 4262 #start stair walk
+Stair_down1_T2: 4415 #end stair walk
+
+Stair_up2_T1: 4433 #start stair walk
+Stair_up2_T2: 4473 #end stair walk
+
+Stair_down2_T1: 4512 #start stair walk
+Stair_down2_T2: 4560 #end stair walk
+
+# Daily activities - play
+
+Jump1_T1: 3928 #start jump
+Jump1_T2: 3930 #end jump
+
+Jump2_T1: 3942 #start jump
+Jump2_T2: 3945 #end jump
+
+Jump3_T1: 3963 #start jump
+Jump3_T2: 3966 #end jump
+
+Football1_T1: 4032 #start football
+Football1_T2: 4035 #end football
+
+Football2_T1: 4076 #start football
+Football2_T2: 4079 #end football
+
+Football3_T1: 4106 #start football
+Football3_T2: 4108 #end football
