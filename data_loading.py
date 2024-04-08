@@ -25,6 +25,7 @@ class RestingActivity(IntEnum):
 
 
 GRUNY_DATA_LOCATION = "/Users/davidgrundfest/Desktop/DTU school stuff/Neural control of human movement/project_code/"
+#hej
 
 FILENAME_BASE = "Participant"
 ACTIVITY_INTENSITY_LABELS = {}
