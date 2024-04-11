@@ -5,51 +5,57 @@ KneeExt_T2: 10511 #End knee extension
 KneeFlex_T1: 10717 #start knee flexion
 KneeFlex_T2: 10834 #end knee flexion
 
-DorsiFlex_T1: 9859: #tart dorsiflexion
-DorsiFlex_T2: 9943: #nd dorsiflexion
+DorsiFlex_T1: 9859 #tart dorsiflexion
+DorsiFlex_T2: 9943 #nd dorsiflexion
 
-PlantarFlex_T1: 9732: #tart plantarflexion
-PlantarFlex_T2: 9804: #nd plantarflexion
+PlantarFlex_T1: 9732 #tart plantarflexion
+PlantarFlex_T2: 9804 #nd plantarflexion
 
 # Rest
 
-Rest_lying_T1: 4683: #tart lying down
-Rest_lying_T2: 4803: #end lying down
+Rest_lying_T1: 4683 #tart lying down
+Rest_lying_T2: 4803 #end lying down
 
 Rest_sitting_T1: 10540 #start sitting
 Rest_sitting_T2: 10660 # end sitting
 
-Standing_T1: 4486: #tart sitting
-Standing_T2: 4606: #end sitting
+Standing_T1: 4486 #tart sitting
+Standing_T2: 4606 #end sitting
 
 Cartoon_T1: 10955 #start cartoon
 Cartoon_T2: 13020 # end cartoon
 
 # Gait
-Treadmill_self_T1: 4967: #tart self chosen treadmill walk
-Treadmill_self_T2: 5087: #nd self chosen treadmill walk
+Treadmill_self_T1: 4967 #tart self chosen treadmill walk
+Treadmill_self_T2: 5087 #nd self chosen treadmill walk
 
-Treadmill_fast_T1: 5111: #tart fast treadmill walk
-Treadmill_fast_T2: 5231: #nd fast treadmill walk
+Treadmill_fast_T1: 5111 #tart fast treadmill walk
+Treadmill_fast_T2: 5231 #nd fast treadmill walk
 
-Treadmill_run_T1: 5325: #tart treadmill run
-Treadmill_run_T2: 5385: #nd treadmill run
+Treadmill_run_T1: 5325 #tart treadmill run
+Treadmill_run_T2: 5385 #nd treadmill run
 
-Floor_self_T1: 4076: #tart floor walk
-Floor_self_T2: 4196: #nd floor walk
+Floor_self_T1: 4076 #tart floor walk
+Floor_self_T2: 4196 #nd floor walk
 
-Floor_fast_T1: 4226: #tart floor walk fast
-Floor_fast_T2: 4346: #nd floor walk fast
+Floor_fast_T1: 4226 #tart floor walk fast
+Floor_fast_T2: 4346 #nd floor walk fast
 
-Floor_run_T1: 4393: #tart floor run
-Floor_run_T2: 4453: #nd floor run
+Floor_run_T1: 4393 #tart floor run
+Floor_run_T2: 4453 #nd floor run
 
-Stair_T1: 5833: #tart stair walk
-Stair_T2: 5969: #nd stair walk
+Stair_T1: 5833 #tart stair walk
+Stair_T2: 5969 #nd stair walk
 
 # Daily activities - play
-Jump_T1: 5567: #tart jump
-Jump_T2: 5638: #nd jump
+Jump1_T1: 5567 #start jump
+Jump1_T2: 5570 #end jump
 
-Football_T1: 5670: #tart football
-Football_T2: 5721: #nd football
+Jump2_T1: 5601 #start jump
+Jump2_T2: 5604 #end jump
+
+Jump3_T1: 5635 #start jump
+Jump3_T2: 5638 #end jump
+
+Football_T1: 5670 #tart football
+Football_T2: 5721 #nd football

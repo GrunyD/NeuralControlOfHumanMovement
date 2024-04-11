@@ -49,8 +49,15 @@ Stair_T1: 7172 #start stair walk
 Stair_T2: 7286 #end stair walk
 
 # Daily activities - play
-Jump_T1: 6700 #start jump
-Jump_T2: 6756 #end jump
+
+Jump1_T1: 6701 #start jump
+Jump1_T2: 6704 #end jump
+
+Jump2_T1: 6732 #start jump
+Jump2_T2: 6735 #end jump
+
+Jump3_T1: 6752 #start jump
+Jump3_T2: 6755 #end jump
 
 Football_T1: 6833 #start football
 Football_T2: 6898 #end football

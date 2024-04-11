@@ -31,6 +31,10 @@ class RestingActivity(IntEnum):
     ...
 
 
+#GRUNY_DATA_LOCATION = "/Users/davidgrundfest/Desktop/DTU school stuff/Neural control of human movement/project_code/"
+Sofie_DATA_LOCATION = "C:\\Users\\sofie\\OneDrive - Danmarks Tekniske Universitet\\Dokumenter\\DTU\\8. semester\\Biomechanics"
+Anton_DATA_LOCATION = "C:/Users/anton/OneDrive/Skrivebord/Biomechanics and neural control of movements"
+
 FILENAME_BASE = "Participant"
 
 def getDataFromFiles(recordingPath:str, configFilePath:str) -> tuple[np.ndarray, dict]:
