@@ -106,7 +106,7 @@ def loadData(recordingsPath:str, configFilesPath:str, participantsNums:list|tupl
     return recordings, labels
 
 if __name__ == "__main__":
-    recordings, labels = loadData(F"{Anton_DATA_LOCATION}/NeuralControlOfHumanMovement/Participants_time_stamps_data", F"{Anton_DATA_LOCATION}/NeuralControlOfHumanMovement/Participants_time_stamps_data", [1, 2])
+    recordings, labels = loadData(F"{Anton_DATA_LOCATION}", F"{Anton_DATA_LOCATION}/NeuralControlOfHumanMovement/Participants_time_stamps_data", [1, 2])
     print(len(recordings)) #50
     print(len(labels)) #50
 
