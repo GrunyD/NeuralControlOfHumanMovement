@@ -26,7 +26,7 @@ class RestingActivity(IntEnum):
 
 #GRUNY_DATA_LOCATION = "/Users/davidgrundfest/Desktop/DTU school stuff/Neural control of human movement/project_code/"
 Sofie_DATA_LOCATION = "C:\\Users\\sofie\\OneDrive - Danmarks Tekniske Universitet\\Dokumenter\\DTU\\8. semester\\Biomechanics"
-Anton_DATA_LOCATION = "C:/Users/anton/OneDrive/Skrivebord/Biomechanics and neural control of movements/NeuralControlOfHumanMovement"
+Anton_DATA_LOCATION = "C:/Users/anton/OneDrive/Skrivebord/Biomechanics and neural control of movements"
 
 FILENAME_BASE = "Participant"
 ACTIVITY_INTENSITY_LABELS = {}
@@ -106,7 +106,7 @@ def loadData(recordingsPath:str, configFilesPath:str, participantsNums:list|tupl
     return recordings, labels
 
 if __name__ == "__main__":
-    recordings, labels = loadData(F"{Anton_DATA_LOCATION}data", F"{Anton_DATA_LOCATION}Participants_time_stamps_data", [1, 2])
+    recordings, labels = loadData(F"{Anton_DATA_LOCATION}/NeuralControlOfHumanMovement/Participants_time_stamps_data", F"{Anton_DATA_LOCATION}/NeuralControlOfHumanMovement/Participants_time_stamps_data", [1, 2])
     print(len(recordings)) #50
     print(len(labels)) #50
 
