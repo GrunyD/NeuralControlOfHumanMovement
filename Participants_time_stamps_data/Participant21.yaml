@@ -27,7 +27,7 @@ Standing_T2: 2450 #end sitting
 Cartoon_T1: 4293 #start cartoon
 Cartoon_T2: 6093 #end cartoon
 
-% Gait
+# Gait
 Treadmill_self_T1: 2547 #start self chosen treadmill walk
 Treadmill_self_T2: 2667 #end self chosen treadmill walk
 

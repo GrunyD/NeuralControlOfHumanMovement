@@ -1,9 +1,9 @@
 #MVC
 
-KneeExt_T1: 75;  #start knee extension
-KneeExt_T2: 446; #end knee extension
+KneeExt_T1: 75  #start knee extension
+KneeExt_T2: 446 #end knee extension
 
-KneeFlex_T1: 791; #start knee flexion
+KneeFlex_T1: 791 #start knee flexion
 KneeFlex_T2: 1177 #end knee flexion
 
 DorsiFlex_T1: 3044 #start dorsiflexion
