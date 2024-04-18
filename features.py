@@ -75,11 +75,17 @@ def logMomentsFourierSpectra(emgData: np.ndarray) -> np.ndarray:
     """
 
     spectra = np.fft.fft(emgData, axis = 1)
-    powerSpectra = spectra * np.conjugate(spectra) #equation 8
-
+    powerSpectra = np.absolute(spectra)**2 #equation 8
     k = np.arange(1, powerSpectra.shape[1]+1)
     k = np.broadcast_to(k, powerSpectra.shape)
-    domainMoment = lambda i: np.sqrt(np.sum(powerSpectra * k**i, axis = 1)) #equation 9
+    # print(k.shape)
+    # print((k<0).any())
+    def domainMoment(i):
+        inside = np.sum(powerSpectra * k**i, axis = 1)
+        # if (inside < 0).any():
+        #     print(inside)
+        return np.sqrt(inside)
+    # domainMoment = lambda i: np.sqrt(np.sum(powerSpectra * k**i, axis = 1)) #equation 9
 
     g0 = domainMoment(0)
     g2 = domainMoment(2)
@@ -108,8 +114,7 @@ def logMomentsFourierSpectra(emgData: np.ndarray) -> np.ndarray:
     for n in range(8, 18):
         features.append(feature(n))
 
-    features = np.array(features)
-    return features.flatten()
+    return np.array(features).flatten()
 
 def spectralBandPowers(emgData:np.ndarray, samplingFrequency:int = SAMPLING_FREQUENCY, nBands:int = NBANDS) -> np.ndarray:
     """
@@ -127,7 +132,7 @@ def spectralBandPowers(emgData:np.ndarray, samplingFrequency:int = SAMPLING_FREQ
 
     TODO: improve how we decide on the bands
     """
-    f, powerSpectrum = signal.welch(emgData, fs = samplingFrequency, axis = 1)
+    f, powerSpectrum = signal.welch(emgData, fs = samplingFrequency, axis = 1, nperseg = emgData.shape[1])
     bands = np.array_split(powerSpectrum, nBands, axis = 1,)
     features = np.empty((emgData.shape[0], nBands))
     for index, band in enumerate(bands):
@@ -169,7 +174,7 @@ def localBinaryPatterns(emgData:np.ndarray, slidingWindowLength:int = LBP_WINDOW
 
 
 
-def getFeatures(emgData: np.ndarray, featureCalculationFuncs:list, segmentWindowLength:int = None) -> np.ndarray:
+def getFeatures(emgData: np.ndarray, featureCalculationFuncs:list = None, segmentWindowLength:int = None) -> np.ndarray:
     """
     Parameters:
     ------------
@@ -190,6 +195,15 @@ def getFeatures(emgData: np.ndarray, featureCalculationFuncs:list, segmentWindow
         for func in funcs:
             features.append(func(emgData))
         return np.concatenate(features)
+    
+    if featureCalculationFuncs is None:
+        featureCalculationFuncs = [
+            # timeDomainStats,
+            interchannelStats, # No error
+            # logMomentsFourierSpectra,
+            # localBinaryPatterns, # No error
+            # spectralBandPowers # No error
+        ]
         
     if segmentWindowLength is None or segmentWindowLength > emgData.shape[1]:
         return getSegmentFeatures(emgData, featureCalculationFuncs)

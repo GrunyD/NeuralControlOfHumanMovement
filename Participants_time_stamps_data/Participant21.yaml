@@ -5,7 +5,7 @@ KneeExt_T1: 72 #start knee extension
 KneeExt_T2: 414 #End knee extension
 
 KneeFlex_T1: 688 #start knee flexion
-KneeFlexT2: 931 #end knee flexion
+KneeFlex_T2: 931 #end knee flexion
 
 DorsiFlex_T1: 1447 #start dorsiflexion
 DorsiFlex_T2: 1717 #end dorsiflexion

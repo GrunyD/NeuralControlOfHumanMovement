@@ -2,7 +2,9 @@ import os
 from os import path
 import yaml
 import numpy as np
-from enum import IntEnum, auto
+from enum import IntEnum
+import random
+
 
 
 """
@@ -14,21 +16,18 @@ The keys in yaml file are in this format: {Activity}{number of trial for this ac
 SAMPLING_RATE = 25
 #TODO Put sampling rate only at one place
 
-Activities = IntEnum('Activities', ['KneeExt', 'KneeFlex', 'DorsiFlex', 'PlamtarFlex',
+Activities = IntEnum('Activities', [#'KneeExt', 'KneeFlex', 'DorsiFlex', 'PlamtarFlex',
                                     'Rest_lying', 'Rest_sitting', 'Standing', 'Standing_Support',
                                     'Cartoon', 'Treadmill_self', 'Treadmill_fast', 'Treadmill_fixed',
                                     'Treadmill_run', 'Floor_self', 'Floor_fast', 'Floor_run', 
                                     'Stair_up', 'Stair_down', 'Jump', 'Football'])
 
-#TODO Decide which activities are considered intense
-class IntenseActivities(IntEnum):
-    ...
 
-class IntermidiateActivities(IntEnum):
-    ...
+IntenseActivities = IntEnum('IntenseActivities', ['Jump', 'Football', 'Floor_fast', 'Floor_run', 'Treadmill_run', 'Treadmill_fast', 'Stair_up'] )
 
-class RestingActivity(IntEnum):
-    ...
+IntermediateActivities = IntEnum('IntermediateActivities', ['Stair_down', 'Floor_self','Treadmill_self', 'Treadmill_fixed'])
+
+RestingActivities = IntEnum('RestingActivities', ['Cartoon', 'Rest_sitting', 'Rest_lying','Standing', 'Standing_Support'])
 
 
 #GRUNY_DATA_LOCATION = "/Users/davidgrundfest/Desktop/DTU school stuff/Neural control of human movement/project_code/"
@@ -38,15 +37,44 @@ Anton_DATA_LOCATION = "C:/Users/anton/OneDrive/Skrivebord/Biomechanics and neura
 FILENAME_BASE = "Participant"
 
 def getDataFromFiles(recordingPath:str, configFilePath:str) -> tuple[np.ndarray, dict]:
-    recording = np.genfromtxt(recordingPath, delimiter=',')
+    recording = np.loadtxt(recordingPath, delimiter=',')
     with open(configFilePath) as stream:
         try:
             config = yaml.safe_load(stream)
         except yaml.YAMLError as exc:
-            print(exc)
+            raise ValueError
     return recording, config
 
-def parseRecording(emgData:np.ndarray, config:dict, augmentation_dict:dict = None) -> tuple[list, list]:
+def getLabel(activity, type:str = 'intensity'):
+    """
+    Returns a label we want to use in classification. There are two types of tasks. Distinguishing
+    between activities and then distinguishing between intensities in the activities.
+
+    Parameters:
+    ------------
+    -   activity: enum attribute
+    -   type: specifies the type of the task, intensity or activity.
+            Defaults to intesity
+
+    Returns:
+    -----------
+    -   label: int
+
+    Raises:
+    -----------
+    -   NotImplementedError: if uses not implemented type
+    """
+    if type == 'intensity':
+        for i, activity_enum in enumerate([IntenseActivities, IntermediateActivities, RestingActivities]):
+            if activity in dir(activity_enum):
+                return i
+    elif type == 'activity':
+        return Activities[activity].value
+    else:
+        raise NotImplementedError(F'This function doesnt take this "{type}" as type')
+
+
+def parseRecording(emgData:np.ndarray, config:dict, augmentation_dict:dict = None, limit:int = 10) -> tuple[list, list]:
     """
     Extracts activity emg recordings according to config file and assing labels.
 
@@ -90,14 +118,18 @@ def parseRecording(emgData:np.ndarray, config:dict, augmentation_dict:dict = Non
         else:
             shifts = [0,]
 
-        assert len(starts) == len(ends)
+        assert len(starts) == len(ends), F"{len(starts)}{len(ends)}"
         for start, end in zip(starts, ends):
             for shift in shifts:
-                recordings.append(emgData[start + shift: end + shift, :].T)
-                labels.append(Activities[activity].value)
+                recording = emgData[start + shift: end + shift, :].T
+                Nsegments = recording.shape[1]//SAMPLING_RATE
+                splitRecording = np.array_split(recording, Nsegments, axis = 1)
+                if limit is not None and len(splitRecording) > limit:
+                    random.choices(splitRecording, k = limit)
+                recordings.extend(splitRecording)
+                labels.extend([getLabel(activity) for _ in range(Nsegments)])
+                assert len(recordings) == len(labels),F"Labels are not the same length after recording segmntation: {len(recordings)}, {len(labels)}"
             
-
-
     return recordings, labels
 
 def loadData(recordingsPath:str, configFilesPath:str, participantsNums:list|tuple|np.ndarray = None, augmentation_dict:dict = None) -> tuple[list, np.ndarray]:
@@ -120,7 +152,7 @@ def loadData(recordingsPath:str, configFilesPath:str, participantsNums:list|tupl
     recordings = []
     labels = []
     for pNum in participantsNums:
-        print(pNum)
+        print(F'Loading participant {pNum}')
         recordingPath = path.join(recordingsPath, F"{FILENAME_BASE}{pNum}.csv")
         configFilePath = path.join(configFilesPath, F"{FILENAME_BASE}{pNum}.yaml")
         recording, config = getDataFromFiles(recordingPath, configFilePath)
