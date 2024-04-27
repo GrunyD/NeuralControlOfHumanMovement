@@ -32,10 +32,10 @@ def timeDomainStats(emgData: np.ndarray) -> np.ndarray:
     axis = 1
     mean = np.average(emgData, axis = axis, keepdims=True)
     variance = np.std(emgData, axis = axis, keepdims=True)**2
-    skewness = stats.skew(emgData, axis = axis, keepdims=True)
-    kurtosis = stats.kurtosis(emgData, axis = axis, keepdims=True)
+    # skewness = stats.skew(emgData, axis = axis, keepdims=True)
+    # kurtosis = stats.kurtosis(emgData, axis = axis, keepdims=True)
 
-    timeDomainStatistics = np.hstack((mean, variance, skewness, kurtosis))
+    timeDomainStatistics = np.hstack((mean, variance))#, skewness, kurtosis))
     return timeDomainStatistics.flatten()
 
 def interchannelStats(emgData: np.ndarray, mode:str = "full") -> np.ndarray:
@@ -54,7 +54,6 @@ def interchannelStats(emgData: np.ndarray, mode:str = "full") -> np.ndarray:
     - interchannelStats: shape (nUniquePairsOfChannels,) 
     """
     indices = np.arange(stop=emgData.shape[0])
-
     values = []
     for index1 in indices[:-1]:
         for index2 in indices[index1+1:]:
@@ -198,11 +197,11 @@ def getFeatures(emgData: np.ndarray, featureCalculationFuncs:list = None, segmen
     
     if featureCalculationFuncs is None:
         featureCalculationFuncs = [
-            # timeDomainStats,
+            timeDomainStats,
             interchannelStats, # No error
             # logMomentsFourierSpectra,
-            # localBinaryPatterns, # No error
-            # spectralBandPowers # No error
+            localBinaryPatterns, # No error
+            spectralBandPowers # No error
         ]
         
     if segmentWindowLength is None or segmentWindowLength > emgData.shape[1]:
